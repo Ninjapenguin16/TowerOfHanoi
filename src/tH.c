@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdarg.h>
+#include <ctype.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -200,6 +201,9 @@ int main(int argc, char** argv) {
 			while ((ch = getchar()) != '\n' && ch != EOF);
 			continue;
 		}
+
+		P1 = toupper(P1);
+		P2 = toupper(P2);
 
 		if(P1 < 'A' || P1 > 'C' || P2 < 'A' || P2 > 'C') {
 			printf("Invalid pegs. Use A, B, or C.\n");
