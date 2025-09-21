@@ -132,7 +132,7 @@ void initFill(int n) {
 	}
 
 	while(n > 0) {
-		Towers[0][stackC[0]] = n--;
+		Towers[0][stackC[0]++] = n--;
 	}
 
 	stackC[0] = disks;
