@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdarg.h>
 #include <ctype.h>
+#include <math.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -193,6 +194,7 @@ int main(int argc, char** argv) {
 	printTowers();
 
 	char P1, P2;
+	int moveCounter = 0;
 	while(true) {
 
 		if(scanf(" %c %c", &P1, &P2) != 2) {
@@ -225,12 +227,16 @@ int main(int argc, char** argv) {
 
 		clearScreen();
 
+		moveCounter++;
+
 		moveDisk(P1 - 'A', P2 - 'A');
 		printf("\n");
 		printTowers();
 
 		if(CheckWin()) {
 			printf("You've won!\n");
+			printf("Total Moves: %d\n", moveCounter);
+			printf("Optimal Moves: %d\n", (int)pow(2, disks) - 1);
 			break;
 		}
 	}

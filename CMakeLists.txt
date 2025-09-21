@@ -24,6 +24,9 @@ file(GLOB_RECURSE SRC_FILES ${CMAKE_SOURCE_DIR}/src/*.c)
 # Create the executable
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
+# Link against math library
+target_link_libraries(${PROJECT_NAME} m)
+
 # Output binary to /build directory inside project
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build
